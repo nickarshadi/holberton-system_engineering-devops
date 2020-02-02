@@ -1,0 +1,1 @@
+/home/nick/Repositories/holberton-system_engineering-devops/0x02-shell_redirections
