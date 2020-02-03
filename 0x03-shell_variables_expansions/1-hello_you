@@ -1,2 +1,2 @@
 #!/bin/bash
-WHOAMI=$(whoami);echo "$WHOAMI"
+echo "$USER"
