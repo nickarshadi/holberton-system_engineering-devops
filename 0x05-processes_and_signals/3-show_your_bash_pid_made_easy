@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+# Display PID of processes containing word bash
+pgrep -l bash
