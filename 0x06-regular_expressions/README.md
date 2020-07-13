@@ -1,1 +1,1 @@
-/home/nick/holberton-system_engineering-devops/0x06-regular_expressions
+## 0x06. Regular expression
