@@ -1,4 +1,4 @@
-Install and Setup NGINX server via puppet.
+#Install and Setup NGINX server via puppet.
 exec { 'Update system':
   command => '/usr/bin/env apt-get -y update',
 }
