@@ -11,13 +11,7 @@ file { '/var/www/html/index.html':
   content => 'Holberton School',
 }
 
-file_line { 'Sed append 301':
-  ensure   => 'present',
-  path     => '/etc/nginx/sites-available/default',
-  after    => 'server_name _;',
-  line     => '	rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
-  multiple => true,
-}
+exec {'/usr/bin/env sed -i "/server_name _;/ a\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default': }
 
 exec {'/usr/bin/env sed -i "/server_name _;/ a\\\terror_page 404 /custom_404.html;" /etc/nginx/sites-available/default': }
 
