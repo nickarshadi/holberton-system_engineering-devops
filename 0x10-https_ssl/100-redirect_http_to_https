@@ -36,12 +36,12 @@ defaults
 frontend load_balancer_https
 	bind *:80
 	bind *:443 ssl crt /etc/haproxy/certs/chainandkey.pem
+	redirect scheme https code 301 if !{ ssl_fc }
 	acl letsencrypt-acl path_beg /.well-known/acme-challenge/
 	use_backend letsencrypt-backend if letsencrypt-acl
 	default_backend web_servers
 
 backend web_servers
-	redirect scheme https code 301 if !{ ssl_fc }
 	balance roundrobin
 	server web1 35.227.13.38:80 check
 	server web2 35.231.175.126:80 check
