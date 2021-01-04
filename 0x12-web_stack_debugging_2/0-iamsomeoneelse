@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Run whoami commadn as other user
+if [ -z "$1" ]
+then 
+	whoami
+else
+        chsh -s /bin/bash "$1"
+        sudo -u www-data -g www-data -- whoami
+fi
