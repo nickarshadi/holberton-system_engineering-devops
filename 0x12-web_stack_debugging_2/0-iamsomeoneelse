@@ -5,5 +5,5 @@ then
 	whoami
 else
         chsh -s /bin/bash "$1"
-        sudo -u www-data -g www-data -- whoami
+        sudo -u "$1" -g "$1" -- whoami
 fi
