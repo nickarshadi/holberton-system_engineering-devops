@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Gather data from an API."""
 
-
+import csv
 import requests
 import sys
 
@@ -38,10 +38,12 @@ def do_request():
     for todo in user_todos:
         if todo.get('completed'):
             completed.append(todo)
-    print("Employee {} is done with tasks({}/{}):".format(user.get('name'),
-          len(completed), len(user_todos)))
-    for task in completed:
-        print('\t {}'.format(task.get('title')))
+
+    with open("{}.csv".format(user_id), 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+        for task in user_todos:
+            writer.writerow([int(user_id), user.get('username'),
+                             task.get('completed'), task.get("title")])
 
 
 if __name__ == "__main__":
