@@ -1,3 +1,1 @@
-0x00-shell_basics
-0x01-shell_permissions
-README.md
+/home/nick/holberton-system_engineering-devops
